@@ -9,6 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    
+    @IBOutlet weak var tapperLabel: UIImageView!
+    @IBOutlet weak var displayLabel: UILabel!
+    
+    
+    @IBOutlet weak var playButtonLabel: UIButton!
+    
+    @IBOutlet weak var tapButtonLabel: UIButton!
+    
+    @IBOutlet weak var timeCounter: UILabel!
+    
+    
+    @IBOutlet weak var tapCounter: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +36,25 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+   
+    @IBAction func onPlayButtonPressed(sender: UIButton) {
+        
+        
+        tapperLabel.hidden = true
+        displayLabel.hidden = true
+        playButtonLabel.hidden = true
+        
+        tapButtonLabel.hidden = false
+        timeCounter.hidden = false
+        tapCounter.hidden = false
+        
+        
+    }
+    
+    @IBAction func onTapButtonPressed(sender: UIButton) {
+    }
+    
+    
 
 }
 
