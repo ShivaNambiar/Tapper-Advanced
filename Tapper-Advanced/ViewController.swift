@@ -10,22 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
+    var timerCount = 30.0
+    var timer = NSTimer()
+    var tapCount = 0
     
     @IBOutlet weak var tapperLabel: UIImageView!
     @IBOutlet weak var displayLabel: UILabel!
-    
-    
     @IBOutlet weak var playButtonLabel: UIButton!
-    
     @IBOutlet weak var tapButtonLabel: UIButton!
-    
     @IBOutlet weak var timeCounter: UILabel!
-    
-    
     @IBOutlet weak var tapCounter: UILabel!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -48,13 +43,29 @@ class ViewController: UIViewController {
         timeCounter.hidden = false
         tapCounter.hidden = false
         
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("Counting"), userInfo: nil, repeats: true)
         
+        
+    }
+    func Counting()
+    {
+        timerCount--
+        timeCounter.text = "\(timerCount) Seconds"
     }
     
     @IBAction func onTapButtonPressed(sender: UIButton) {
+    
+        if timerCount > 0
+        {
+            tapCount++
+            tapCounter.text = "\(tapCount) Taps"
+
+           
+        }
+        else
+        {timer.invalidate()
+            tapButtonLabel.hidden = true}
     }
-    
-    
 
 }
 
