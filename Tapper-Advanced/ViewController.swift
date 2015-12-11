@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var timerCount = 30.0
+    var timerCount = 30
     var timer = NSTimer()
     var tapCount = 0
     
@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var tapButtonLabel: UIButton!
     @IBOutlet weak var timeCounter: UILabel!
     @IBOutlet weak var tapCounter: UILabel!
+    @IBOutlet weak var restartButtonLabel: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,9 @@ class ViewController: UIViewController {
    
     @IBAction func onPlayButtonPressed(sender: UIButton) {
         
+        timerCount = 30
+        tapCount = 0
+
         
         tapperLabel.hidden = true
         displayLabel.hidden = true
@@ -43,14 +48,28 @@ class ViewController: UIViewController {
         timeCounter.hidden = false
         tapCounter.hidden = false
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("Counting"), userInfo: nil, repeats: true)
+        if timerCount > 0
+        {
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("Counting"), userInfo: nil, repeats: true)
+        }
+        
         
         
     }
     func Counting()
     {
-        timerCount--
-        timeCounter.text = "\(timerCount) Seconds"
+        if timerCount <= 0
+        {
+            timer.invalidate()
+            tapButtonLabel.hidden = true
+            restartButtonLabel.hidden = false
+            
+        }
+        else
+        {
+            timerCount--
+            timeCounter.text = "\(timerCount) Sec"
+        }
     }
     
     @IBAction func onTapButtonPressed(sender: UIButton) {
@@ -63,8 +82,24 @@ class ViewController: UIViewController {
            
         }
         else
-        {timer.invalidate()
-            tapButtonLabel.hidden = true}
+        {   timer.invalidate()
+            tapButtonLabel.hidden = true
+            restartButtonLabel.hidden = false
+            
+        }
+    }
+    
+    @IBAction func onRestartButtonPressed(sender: UIButton) {
+        
+        tapperLabel.hidden = false
+        displayLabel.hidden = false
+        playButtonLabel.hidden = false
+        
+        tapButtonLabel.hidden = true
+        timeCounter.hidden = true
+        tapCounter.hidden = true
+        restartButtonLabel.hidden = true
+        
     }
 
 }

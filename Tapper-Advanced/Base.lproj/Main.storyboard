@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retrobg" translatesAutoresizingMaskIntoConstraints="NO" id="Hw0-Wh-zpF">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retrobg" translatesAutoresizingMaskIntoConstraints="NO" id="Hw0-Wh-zpF">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tapper" translatesAutoresizingMaskIntoConstraints="NO" id="ErP-Xo-9AB">
                                 <rect key="frame" x="-13" y="50" width="626" height="71"/>
@@ -49,26 +48,6 @@
                                     <action selector="onPlayButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EzU-C1-Q55"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="t4b-hm-fwD" userLabel="timeCounter">
-                                <rect key="frame" x="244" y="129" width="113" height="53"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="53" id="OuS-Qr-16X"/>
-                                    <constraint firstAttribute="width" constant="113" id="ZNf-5T-QWF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="50"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Taps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ws-Nl-1fj" userLabel="tapCounter">
-                                <rect key="frame" x="199" y="250" width="203" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="203" id="pVg-Ex-y5i"/>
-                                    <constraint firstAttribute="height" constant="41" id="uGt-FJ-MeM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uau-Hb-8Hq" userLabel="tapButton">
                                 <rect key="frame" x="232" y="329" width="137" height="137"/>
                                 <constraints>
@@ -80,29 +59,66 @@
                                     <action selector="onTapButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WE7-Ia-KeZ"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Taps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ws-Nl-1fj" userLabel="tapCounter">
+                                <rect key="frame" x="199" y="250" width="203" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="203" id="pVg-Ex-y5i"/>
+                                    <constraint firstAttribute="height" constant="41" id="uGt-FJ-MeM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="t4b-hm-fwD" userLabel="timeCounter">
+                                <rect key="frame" x="244" y="129" width="113" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="OuS-Qr-16X"/>
+                                    <constraint firstAttribute="width" constant="113" id="ZNf-5T-QWF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="50"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6g-mC-DUd" userLabel="restartButton">
+                                <rect key="frame" x="264" y="379" width="72" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="E1z-dN-51d"/>
+                                    <constraint firstAttribute="width" constant="72" id="fkQ-Lb-siy"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="Power - Restart">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onRestartButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eAk-FR-HJB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Hw0-Wh-zpF" secondAttribute="trailing" constant="-20" id="3q0-P3-Jc4"/>
+                            <constraint firstItem="Hw0-Wh-zpF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1aP-rk-3L6"/>
                             <constraint firstItem="ErP-Xo-9AB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="Ejn-vB-qLr"/>
                             <constraint firstItem="6Ws-Nl-1fj" firstAttribute="top" secondItem="t4b-hm-fwD" secondAttribute="bottom" constant="68" id="Gau-RU-2Z4"/>
                             <constraint firstItem="kOB-4h-KsE" firstAttribute="top" secondItem="ErP-Xo-9AB" secondAttribute="bottom" constant="88" id="NF2-kS-Ou4"/>
                             <constraint firstItem="uau-Hb-8Hq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PeV-tq-2On"/>
                             <constraint firstItem="6Ws-Nl-1fj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sby-tX-zYg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Hw0-Wh-zpF" secondAttribute="bottom" id="UTQ-ih-Gbr"/>
                             <constraint firstItem="ErP-Xo-9AB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XSF-wL-kUA"/>
                             <constraint firstItem="t4b-hm-fwD" firstAttribute="top" secondItem="ErP-Xo-9AB" secondAttribute="bottom" constant="8" id="YJf-dm-eap"/>
                             <constraint firstItem="uau-Hb-8Hq" firstAttribute="top" secondItem="6Ws-Nl-1fj" secondAttribute="bottom" constant="38" id="YKy-H1-Yl6"/>
                             <constraint firstItem="kOB-4h-KsE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fAa-B1-Nnr"/>
-                            <constraint firstItem="Hw0-Wh-zpF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="lKG-Jf-4Tj"/>
-                            <constraint firstItem="Hw0-Wh-zpF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="paj-hY-6bo"/>
+                            <constraint firstAttribute="trailing" secondItem="Hw0-Wh-zpF" secondAttribute="trailing" id="ksg-87-ezW"/>
+                            <constraint firstItem="Hw0-Wh-zpF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="r93-Tr-OMF"/>
                             <constraint firstItem="t4b-hm-fwD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sNl-JN-omu"/>
+                            <constraint firstItem="r6g-mC-DUd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sak-6m-XaC"/>
                             <constraint firstItem="MmM-Ao-Cdi" firstAttribute="top" secondItem="kOB-4h-KsE" secondAttribute="bottom" constant="65" id="tPE-04-mSU"/>
+                            <constraint firstItem="r6g-mC-DUd" firstAttribute="top" secondItem="6Ws-Nl-1fj" secondAttribute="bottom" constant="88" id="xXI-00-3e5"/>
                             <constraint firstItem="MmM-Ao-Cdi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zYC-ED-er4"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="displayLabel" destination="kOB-4h-KsE" id="1GR-Wy-Hqc"/>
                         <outlet property="playButtonLabel" destination="MmM-Ao-Cdi" id="kis-xJ-Hdj"/>
+                        <outlet property="restartButtonLabel" destination="r6g-mC-DUd" id="fgB-ve-1ej"/>
                         <outlet property="tapButtonLabel" destination="uau-Hb-8Hq" id="BHs-2d-hdb"/>
                         <outlet property="tapCounter" destination="6Ws-Nl-1fj" id="G7D-4Z-LO8"/>
                         <outlet property="tapperLabel" destination="ErP-Xo-9AB" id="Q9r-ac-WKd"/>
@@ -115,6 +131,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Power - Restart" width="512" height="512"/>
         <image name="Tapper" width="497" height="107"/>
         <image name="coin" width="244" height="268"/>
         <image name="playbtn" width="356" height="175"/>
